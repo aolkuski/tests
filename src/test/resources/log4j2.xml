@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+	<appenders>
+
+
+		<!-- ============================== -->
+		<!-- Append messages to the console -->
+		<!-- ============================== -->
+		<Console name="STDOUT" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d %C{1} %-5level: %msg%n" />
+		</Console>
+
+		<!-- ============================== -->
+		<!-- Append messages to the engine run log html file -->
+		<!-- ============================== -->
+		<FastRollingFile name="WebDriverActionsLogAppender" fileName="target/logs/WebDriverActions.log" 
+					filePattern="target/logs/$${date:yyyy-MM}/WebDriverActions-%d{MM-dd-yyyy}-%i.log.gz">
+			<PatternLayout pattern="%d %-5level: %msg%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+			</Policies>
+			<DefaultRolloverStrategy max="20" />
+		</FastRollingFile>
+
+
+		<!-- ============================== -->
+		<!-- Append messages to the TestCase log html file -->
+		<!-- ============================== -->
+		<FastRollingFile name="TestCaseLogAppender" fileName="target/logs/TestCaseInfo.log"
+			filePattern="target/logs/$${date:yyyy-MM}/TestCaseInfo-%d{MM-dd-yyyy}-%i.log.gz">
+			<PatternLayout pattern="%d %-5level: %msg%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				
+			</Policies>
+			<DefaultRolloverStrategy max="20" />
+		</FastRollingFile>
+
+		<!-- ============================== -->
+		<!-- Append messages to the TestCase log html file -->
+		<!-- ============================== -->
+		<FastRollingFile name="EngineRunLogAppender" fileName="target/logs/EngineRunInfo.log"
+			filePattern="target/logs/$${date:yyyy-MM}/EngineRunInfo-%d{MM-dd-yyyy}-%i.log.gz">
+			<PatternLayout pattern="%d %-5level: %msg%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+			</Policies>
+			<DefaultRolloverStrategy max="20" />
+		</FastRollingFile>
+
+
+	</appenders>
+	<loggers>
+
+		<!-- ======================= -->
+		<!-- Setup the Root category -->
+		<!-- ======================= -->
+		<root level="debug">
+			<appender-ref ref="STDOUT" />
+		</root>
+
+		<logger name="core.listeners" level="info">
+			<appender-ref ref="WebDriverActionsLogAppender" />
+		</logger>
+		<logger name="EngineRunLog" level="info">
+			<appender-ref ref="EngineRunLogAppender" />
+		</logger>
+		<logger name="TestCase" level="info">
+			<appender-ref ref="TestCaseLogAppender" />
+		</logger>
+
+	</loggers>
+</configuration>

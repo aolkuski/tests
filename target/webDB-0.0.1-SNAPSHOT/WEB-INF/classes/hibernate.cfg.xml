@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.password">wC7!hM8%</property>
+		<property name="hibernate.connection.url">jdbc:mysql://sql4.freesqldatabase.com:3306/sql425741</property>
+		<property name="hibernate.connection.username">sql425741</property>
+		<property name="hibernate.hbm2ddl.auto">create</property>
+		<mapping class="pl.agh.edu.is.webDB.entities.Discount" />
+		<mapping class="pl.agh.edu.is.webDB.entities.Application" />
+		<mapping class="pl.agh.edu.is.webDB.entities.FormField" />
+		<mapping class="pl.agh.edu.is.webDB.entities.Group" />
+		<mapping class="pl.agh.edu.is.webDB.entities.Right" />
+		<mapping class="pl.agh.edu.is.webDB.entities.Seller" />
+
+	</session-factory>
+</hibernate-configuration>

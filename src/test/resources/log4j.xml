@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd">
+
+<!-- ===================================================================== -->
+<!--                                                                       -->
+<!--  Log4j Configuration                                                  -->
+<!--                                                                       -->
+<!-- ===================================================================== -->
+
+<!-- $Id:log4j.xml,v 1.0, 2007-03-02 12:58:12Z, Guillaume Duchesneau$ -->
+
+<!--
+   | For more configuration infromation and examples see the Jakarta Log4j
+   | website: http://jakarta.apache.org/log4j
+ -->
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+   <!-- ============================== -->
+   <!-- Append messages to the console -->
+   <!-- ============================== -->
+   <appender name="consoleOutAppender" class="org.apache.log4j.ConsoleAppender"> 
+      <param name="Target" value="System.out"/>      
+      <layout class="org.apache.log4j.PatternLayout">
+         <param name="ConversionPattern" value="%d %-5p [%c{1}] %m%n"/>
+      </layout>
+   </appender>
+	
+   <!-- ============================== -->
+   <!-- Append messages to the test as-run log -->
+   <!-- ============================== -->
+   <appender name="asRunLogAppender" class="org.apache.log4j.FileAppender">   
+      <param name="Append" value="false"/>
+      <param name="File" value="target/as-run.log"/>  
+      <layout class="org.apache.log4j.PatternLayout">
+         <param name="ConversionPattern" value="%d %m%n"/>
+      </layout>      
+      <filter class="org.apache.log4j.varia.LevelRangeFilter">
+      	 <param name="AcceptOnMatch" value="false"/>
+      	 <param name="LevelMin" value="INFO"/>
+      </filter>
+   </appender>
+   
+   <!-- ============================== -->
+   <!-- Append messages to the test as-run-debug log -->
+   <!-- ============================== -->
+   <appender name="asRunDebugLogAppender" class="org.apache.log4j.FileAppender">   
+      <param name="Append" value="false"/>
+      <param name="File" value="target/as-run-debug.log"/>  
+      <layout class="org.apache.log4j.PatternLayout">
+         <param name="ConversionPattern" value="%d %m%n"/>
+      </layout>      
+   </appender>
+   
+   <!-- ============================== -->
+   <!-- Append messages to the data operations log -->
+   <!-- ============================== -->
+   <appender name="dataOperationsLogApender" class="org.apache.log4j.FileAppender">   
+      <param name="Append" value="false"/>
+      <param name="File" value="target/dataOperations.log"/>     
+      <layout class="org.apache.log4j.PatternLayout">
+         <param name="ConversionPattern" value="%d %-5p [%c{1}] %m%n"/>
+      </layout>
+      <filter class="org.apache.log4j.varia.LevelRangeFilter">
+      	 <param name="AcceptOnMatch" value="false"/>
+      	 <param name="LevelMin" value="INFO"/>
+      </filter>
+   </appender>
+   
+   <!-- ============================== -->
+   <!-- Logger for as-run log (regular and debug) -->
+   <!-- ============================== -->
+   <logger name="com.careersection.testcase">
+      <level value="INFO"></level>
+      <appender-ref ref="asRunLogAppender"/>
+      <appender-ref ref="asRunDebugLogAppender"/>
+   </logger>
+   
+   <!-- ============================== -->
+   <!-- Logger for data operations log -->
+   <!-- ============================== -->
+   <logger name="com.careersection.dataoperations">
+      <level value="INFO"></level>
+      <appender-ref ref="asRunLogAppender"/>
+      <appender-ref ref="asRunDebugLogAppender"/>
+      <appender-ref ref="dataOperationsLogApender"/>
+   </logger>
+   
+   <!-- ======================= -->
+   <!-- Setup the Root category -->
+   <!-- ======================= -->
+   <root>
+      <priority value="INFO" />	  
+      <appender-ref ref="consoleOutAppender"/>
+   </root>
+
+</log4j:configuration>
