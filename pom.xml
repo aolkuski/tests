@@ -10,7 +10,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
-	<name>ROOT</name>
+	<name>wsDB</name>
 
 
 
@@ -209,7 +209,7 @@
        <version>2.2</version>
        <configuration>
          <outputDirectory>deployments</outputDirectory>
-         <warName>ROOT</warName>
+         <warName>webDBwar</warName>
        </configuration>
      </plugin>
    </plugins>
