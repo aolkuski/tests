@@ -17,7 +17,7 @@ import pl.agh.edu.is.webDB.entities.Group;
 import pl.agh.edu.is.webDB.entities.Right;
 import pl.agh.edu.is.webDB.entities.Seller;
 
-@WebService(endpointInterface = "pl.agh.edu.is.webDB.publicservices.AdminPanelInt", serviceName = "AdminPanel")
+@WebService(endpointInterface = "pl.agh.edu.is.webDB.publicservices.AdminPanelInt", serviceName = "AdminPanelService")
 
 public class AdminPanel implements AdminPanelInt{
 
