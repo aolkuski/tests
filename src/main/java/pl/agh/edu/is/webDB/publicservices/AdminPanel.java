@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import javax.jws.WebMethod;
 import javax.jws.WebService;
 
 import pl.agh.edu.is.webDB.crud.ApplicationsManagement;
@@ -18,51 +17,45 @@ import pl.agh.edu.is.webDB.entities.Group;
 import pl.agh.edu.is.webDB.entities.Right;
 import pl.agh.edu.is.webDB.entities.Seller;
 
-@WebService
-public class AdminPanel {
+@WebService(endpointInterface = "pl.agh.edu.is.webDB.publicservices.AdminPanelInt", serviceName = "AdminPanel")
 
-	@WebMethod
+public class AdminPanel implements AdminPanelInt{
+
 	public List<Discount> getAllDiscounts() {
 		ArrayList<Discount> dscts = new ArrayList<Discount>();
 		dscts = DiscountsManagement.getAll();
 		return dscts;
 	}
 
-	@WebMethod
 	public List<Application> getAllApplications() {
 		ArrayList<Application> applications = new ArrayList<Application>();
 		applications = ApplicationsManagement.getAll();
 		return applications;
 	}
 	
-	@WebMethod
 	public void addRandomRight() {
 		Right r1 = new Right("nazwa"+Calendar.getInstance().getTimeInMillis(), "opis");
 		RightsManagement.add(r1);
 	}
 
-	@WebMethod
 	public List<Right> getAllRights() {
 		ArrayList<Right> rts = new ArrayList<Right>();
 		rts = RightsManagement.getAll();
 		return rts;
 	}
 
-	@WebMethod
 	public List<Group> getAllGroups() {
 		ArrayList<Group> grps = new ArrayList<Group>();
 		grps = GroupsManagement.getAll();
 		return grps;
 	}
 
-	@WebMethod
 	public List<Seller> getAllSellers() {
 		ArrayList<Seller> sellers = new ArrayList<Seller>();
 		sellers = SellersManagement.getAll();
 		return sellers;
 	}
 	
-	@WebMethod
 	public Boolean isGroupAllowed(String groupName, String Right){
 		
 		return false;
