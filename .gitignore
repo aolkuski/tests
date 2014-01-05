@@ -1,5 +1,7 @@
 /target
 target
+target/*
+/target/*
 .settings/*
 !.settings/.jsdtscope
 .project
