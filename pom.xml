@@ -164,7 +164,7 @@
 							</component>
 						</components>
 						<componentProperties>
-							<configurationfile>hibernate.cfg.xml</configurationfile>
+							<configurationfile>src/main/resources/hibernate.cfg.xml</configurationfile>
 							<outputfilename>schema.ddl</outputfilename>
 							<drop>false</drop>
 							<create>true</create>
