@@ -2,6 +2,8 @@ package pl.agh.edu.is.webDB.privateservices;
 
 import java.util.List;
 
+import javax.jws.WebService;
+
 import pl.agh.edu.is.webDB.crud.ApplicationsManagement;
 import pl.agh.edu.is.webDB.crud.DiscountsManagement;
 import pl.agh.edu.is.webDB.crud.FormFieldsManagement;
@@ -15,6 +17,7 @@ import pl.agh.edu.is.webDB.entities.Group;
 import pl.agh.edu.is.webDB.entities.Right;
 import pl.agh.edu.is.webDB.entities.Seller;
 
+@WebService(endpointInterface = "pl.agh.edu.is.webDB.publicservices.CrudServiceInterface", serviceName = "CrudService")
 public class CrudService implements CrudServiceInterface {
 
 	@Override
