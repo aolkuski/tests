@@ -17,7 +17,7 @@ import pl.agh.edu.is.webDB.entities.Group;
 import pl.agh.edu.is.webDB.entities.Right;
 import pl.agh.edu.is.webDB.entities.Seller;
 
-@WebService(endpointInterface = "pl.agh.edu.is.webDB.publicservices.CrudServiceInterface", serviceName = "CrudService")
+@WebService(endpointInterface = "pl.agh.edu.is.webDB.privateservices.CrudServiceInterface", serviceName = "CrudService")
 public class CrudService implements CrudServiceInterface {
 
 	@Override
