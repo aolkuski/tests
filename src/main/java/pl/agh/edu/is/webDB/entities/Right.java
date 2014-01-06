@@ -9,6 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="APP_RIGHT")
@@ -101,6 +102,7 @@ public class Right extends WebDBEntity{
 	 * @param separator string that should be used to separate values.
 	 * @return single String with names of all fields in entity.
 	 */
+	@Transient
 	public String getStringDataHeader(String separator){
 		StringBuilder sb = new StringBuilder();
 		sb.append("ID/Name"+separator);
@@ -120,6 +122,7 @@ public class Right extends WebDBEntity{
 	 * @param secondLevelSeparator separator for nested lists (e.g. fields in application)
 	 * @return single String made of all data 
 	 */
+	@Transient
 	public String getAllDataAsString(String separator){
 		StringBuilder sb = new StringBuilder();
 		sb.append(this.getRightName()+separator);
