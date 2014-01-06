@@ -22,7 +22,7 @@ public class Seller extends WebDBEntity{
 	@Column(name="DESCRIPTION")
 	private String description;
 	
-	public Seller(){}
+	private Seller(){}
 	
 	public Seller(Integer pId, String pAddress, String pType, String pDescr) {
 		entityId = pId;
@@ -123,7 +123,6 @@ public class Seller extends WebDBEntity{
 		sb.append("Time Created"+separator);
 		sb.append("Modifier"+separator);
 		sb.append("Time Modified");
-		
 		
 		return sb.toString();
 	}

@@ -24,7 +24,7 @@ public class Right extends WebDBEntity{
 	@ManyToMany(fetch=FetchType.EAGER, mappedBy="rights")
 	private List<Group> groups = new ArrayList<Group>();
 	
-	public Right(){}
+	private Right(){}
 	
 	public Right( String pRightName, String pDesc){
 		rightName = pRightName;

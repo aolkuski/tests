@@ -37,6 +37,8 @@ public class Application extends WebDBEntity {
 	@JoinTable(name = "APPLICATION_FIELDS", joinColumns = { @JoinColumn(name = "ID") }, inverseJoinColumns = { @JoinColumn(name = "FORM_FIELD_NAME") })
 	private List<FormField> formFields;
 
+	private Application(){}
+	
 	public Application(Integer pId, String pType, String pApplicant, String pSupervisor, String pDescr, ArrayList<FormField> fields) {
 		id = pId;
 		type = pType;

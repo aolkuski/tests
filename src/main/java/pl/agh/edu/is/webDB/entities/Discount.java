@@ -9,7 +9,7 @@ import javax.persistence.Table;
 @Table(name="DISCOUNT")
 public class Discount extends WebDBEntity {
 
-	public Discount(){}
+	private Discount(){}
 	
 	public Discount(String pName, Double pVal, String pInsuranceType,
 			String pUnit, Integer pBottomLimit, Integer pTopLimit,

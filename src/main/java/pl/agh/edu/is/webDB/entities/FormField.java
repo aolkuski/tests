@@ -26,7 +26,7 @@ public class FormField extends WebDBEntity {
 	@ManyToMany(mappedBy="formFields")
 	private List<Application> applications = new ArrayList<Application>();
 	
-	public FormField(){}
+	private FormField(){}
 	
 	public FormField(String pFormFieldName, String pFieldType, String pDescr) {
 		formFieldName = pFormFieldName;

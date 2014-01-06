@@ -33,7 +33,7 @@ public class Group extends WebDBEntity{
 			inverseJoinColumns={@JoinColumn(name="RIGHT_NAME")})
 	private List<Right> rights = new ArrayList<Right>();
 	
-	public Group(){}
+	private Group(){}
 	
 	public Group(String pGroupName, String pDescr, Boolean pActive) {
 		groupName = pGroupName;
