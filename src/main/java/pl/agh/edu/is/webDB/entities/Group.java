@@ -116,4 +116,49 @@ public class Group extends WebDBEntity{
 		}
 		return this.hashCode() == ((Group)obj).hashCode();
 	}
+	
+	/**
+	 * Method for obtaining String header for what is present in String returned by {@code getAllDataAsString} method.
+	 * @param separator string that should be used to separate values.
+	 * @return single String with names of all fields in entity.
+	 */
+	public String getStringDataHeader(String separator){
+		StringBuilder sb = new StringBuilder();
+		sb.append("ID/Name"+separator);
+		sb.append("Rights"+separator);
+		sb.append("Description"+separator);
+		sb.append("Is Active"+separator);
+	
+		sb.append("Author"+separator);
+		sb.append("Time Created"+separator);
+		sb.append("Modifier"+separator);
+		sb.append("Time Modified");
+		
+		
+		return sb.toString();
+	}
+	
+	/**
+	 * Returns all data from entity, separated by 'separator'. If any nested lists are present, then 'secondLevelSeparator' is used to separate those values (like fields in application)
+	 * @param separator separator for data (id, type, description etc)
+	 * @param secondLevelSeparator separator for nested lists (e.g. fields in application)
+	 * @return single String made of all data 
+	 */
+	public String getAllDataAsString(String separator, String secondLevelSeparator){
+		StringBuilder sb = new StringBuilder();
+		sb.append(this.getGroupName()+separator);
+		for(Right r:this.getRights()){
+			sb.append(r.getRightName()+secondLevelSeparator);
+		}
+		sb.append(separator);
+		sb.append(this.getDescription()+separator);
+		sb.append(this.getActive()+separator);
+		
+		sb.append(this.getAuthor()+separator);
+		sb.append(this.getTimeCreated()+separator);
+		sb.append(this.getModifier()+separator);
+		sb.append(this.getTimeModified());
+		
+		return sb.toString();
+	}
 }

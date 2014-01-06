@@ -102,6 +102,46 @@ public class FormField extends WebDBEntity {
 		}
 		return this.hashCode() == ((FormField)obj).hashCode();
 	}
+	
+	/**
+	 * Method for obtaining String header for what is present in String returned by {@code getAllDataAsString} method.
+	 * @param separator string that should be used to separate values.
+	 * @return single String with names of all fields in entity.
+	 */
+	public String getStringDataHeader(String separator){
+		StringBuilder sb = new StringBuilder();
+		sb.append("ID/Name"+separator);
+		sb.append("Field Type"+separator);
+		sb.append("Description"+separator);
+	
+		sb.append("Author"+separator);
+		sb.append("Time Created"+separator);
+		sb.append("Modifier"+separator);
+		sb.append("Time Modified");
+		
+		
+		return sb.toString();
+	}
+	
+	/**
+	 * Returns all data from entity, separated by 'separator'. If any nested lists are present, then 'secondLevelSeparator' is used to separate those values (like fields in application)
+	 * @param separator separator for data (id, type, description etc)
+	 * @param secondLevelSeparator separator for nested lists (e.g. fields in application)
+	 * @return single String made of all data 
+	 */
+	public String getAllDataAsString(String separator){
+		StringBuilder sb = new StringBuilder();
+		sb.append(this.getName()+separator);
+		sb.append(this.getFieldType()+separator);
+		sb.append(this.getDescription()+separator);
+		
+		sb.append(this.getAuthor()+separator);
+		sb.append(this.getTimeCreated()+separator);
+		sb.append(this.getModifier()+separator);
+		sb.append(this.getTimeModified());
+		
+		return sb.toString();
+	}
  
 	
 	

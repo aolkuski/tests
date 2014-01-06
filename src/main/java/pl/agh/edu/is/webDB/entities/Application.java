@@ -37,9 +37,6 @@ public class Application extends WebDBEntity {
 	@JoinTable(name = "APPLICATION_FIELDS", joinColumns = { @JoinColumn(name = "ID") }, inverseJoinColumns = { @JoinColumn(name = "FORM_FIELD_NAME") })
 	private List<FormField> formFields;
 
-	private Application() {
-	};
-
 	public Application(Integer pId, String pType, String pApplicant, String pSupervisor, String pDescr, ArrayList<FormField> fields) {
 		id = pId;
 		type = pType;
@@ -162,6 +159,54 @@ public class Application extends WebDBEntity {
 
 		return true;
 
+	}
+	
+	/**
+	 * Method for obtaining String header for what is present in String returned by {@code getAllDataAsString} method.
+	 * @param separator string that should be used to separate values.
+	 * @return single String with names of all fields in entity.
+	 */
+	public String getStringDataHeader(String separator){
+		StringBuilder sb = new StringBuilder();
+		sb.append("ID"+separator);
+		sb.append("Type"+separator);
+		sb.append("Applicant"+separator);
+		sb.append("Supervisor"+separator);
+		sb.append("Description"+separator);
+		sb.append("Fields' names"+separator);
+		sb.append("Author"+separator);
+		sb.append("Time Created"+separator);
+		sb.append("Modifier"+separator);
+		sb.append("Time Modified");
+		
+		return sb.toString();
+	}
+	
+	/**
+	 * Returns all data from entity, separated by 'separator'. If any nested lists are present, then 'secondLevelSeparator' is used to separate those values (like fields in application)
+	 * @param separator separator for data (id, type, description etc)
+	 * @param secondLevelSeparator separator for nested lists (e.g. fields in application)
+	 * @return single String made of all data 
+	 */
+	public String getAllDataAsString(String separator, String secondLevelSeparator){
+		StringBuilder sb = new StringBuilder();
+		sb.append(this.getId()+separator);
+		sb.append(this.getType()+separator);
+		sb.append(this.getApplicant()+separator);
+		sb.append(this.getSupervisor()+separator);
+		sb.append(this.getDescription()+separator);
+		for(FormField f:this.getFormFields()){
+			sb.append(f.getName()+secondLevelSeparator);
+		}
+		sb.append(separator);
+		
+		
+		sb.append(this.getAuthor()+separator);
+		sb.append(this.getTimeCreated()+separator);
+		sb.append(this.getModifier()+separator);
+		sb.append(this.getTimeModified());
+		
+		return sb.toString();
 	}
 
 }
