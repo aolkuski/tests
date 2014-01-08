@@ -170,5 +170,37 @@ public class SellersManagement {
 		
 		return res;
 	}
+	
+	/**
+	 * Method for obtaining String header for what is present in String returned by {@code getAllDataAsString} method.
+	 * @param separator string that should be used to separate values.
+	 * @return single String with names of all fields in entity.
+	 */
+	public static String getStringDataHeader(String separator){
+		StringBuilder sb = new StringBuilder();
+		sb.append("ID/Name"+separator);
+		sb.append("Address"+separator);
+		sb.append("Type"+separator);
+		sb.append("Description"+separator);
+	
+		sb.append("Author"+separator);
+		sb.append("Time Created"+separator);
+		sb.append("Modifier"+separator);
+		sb.append("Time Modified");
+		
+		return sb.toString();
+	}
+	
+	public static ArrayList<String> getAllSellersAsListOfSeparatedStrings(String separator){
+		ArrayList<String> result = new ArrayList<String>();
+		ArrayList<Seller> allSellers = getAll();
+		
+		for(Seller s:allSellers){
+			result.add(s.getAllDataAsString(separator));
+		}
+		
+		return result;
+	}
+
 
 }

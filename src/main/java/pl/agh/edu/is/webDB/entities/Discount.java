@@ -170,29 +170,7 @@ public class Discount extends WebDBEntity {
 		return res;
 	}
 	
-	/**
-	 * Method for obtaining String header for what is present in String returned by {@code getAllDataAsString} method.
-	 * @param separator string that should be used to separate values.
-	 * @return single String with names of all fields in entity.
-	 */
-	public String getStringDataHeader(String separator){
-		StringBuilder sb = new StringBuilder();
-		sb.append("ID/Name"+separator);
-		sb.append("Insurance Type"+separator);
-		sb.append("Unit"+separator);
-		sb.append("Bottom Limit"+separator);
-		sb.append("Top Limit"+separator);
-		sb.append("Limited Field Name"+separator);
-		sb.append("Is Active"+separator);
-	
-		sb.append("Author"+separator);
-		sb.append("Time Created"+separator);
-		sb.append("Modifier"+separator);
-		sb.append("Time Modified");
-		
-		
-		return sb.toString();
-	}
+
 	
 	/**
 	 * Returns all data from entity, separated by 'separator'. If any nested lists are present, then 'secondLevelSeparator' is used to separate those values (like fields in application)

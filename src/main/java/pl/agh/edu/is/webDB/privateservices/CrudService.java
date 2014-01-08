@@ -155,4 +155,66 @@ public class CrudService implements CrudServiceInterface {
 		return false;
 	}
 
+	@Override
+	public String getRightsStringDataHeader(String separator) {
+		return RightsManagement.getStringDataHeader(separator);
+	}
+
+	@Override
+	public String getApplicationsStringDataHeader(String separator) {
+		return ApplicationsManagement.getStringDataHeader(separator);
+	}
+
+	@Override
+	public String getDiscountsStringDataHeader(String separator) {
+		return DiscountsManagement.getStringDataHeader(separator);
+	}
+	
+	@Override
+	public String getFormFieldsStringDataHeader(String separator) {
+		return FormFieldsManagement.getStringDataHeader(separator);
+	}
+	
+	@Override
+	public String getGroupsStringDataHeader(String separator) {
+		return GroupsManagement.getStringDataHeader(separator);
+	}
+	
+	@Override
+	public String getSellersStringDataHeader(String separator) {
+		return SellersManagement.getStringDataHeader(separator);
+	}
+
+	@Override
+	public List<String> getAllDiscountsAsSeparatedStringsList(String separator) {
+		return DiscountsManagement.getAllDiscountsAsListOfSeparatedStrings(separator);
+	}
+	
+	@Override
+	public List<String> getAllFormFieldsAsSeparatedStringsList(String separator) {
+		return FormFieldsManagement.getAllFormFieldsAsListOfSeparatedStrings(separator);
+	}
+	
+	@Override
+	public List<String> getAllRightsAsSeparatedStringsList(String separator) {
+		return RightsManagement.getAllRightsAsListOfSeparatedStrings(separator);
+	}
+	
+	@Override
+	public List<String> getAllSellersAsSeparatedStringsList(String separator) {
+		return SellersManagement.getAllSellersAsListOfSeparatedStrings(separator);
+	}
+
+	@Override
+	public List<String> getAllApplicationsAsSeparatedStringsList(String separator, String secondLevelSeparator) {
+		return ApplicationsManagement.getAllApplicationsAsListOfSeparatedStrings(separator, secondLevelSeparator); 
+	}
+
+	@Override
+	public List<String> getAllGroupsAsSeparatedStringsList(String separator,String secondLevelSeparator) {
+		return GroupsManagement.getAllGroupsAsListOfSeparatedStrings(separator, secondLevelSeparator); 
+	}
+	
+	
+
 }

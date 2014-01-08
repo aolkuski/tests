@@ -98,7 +98,44 @@ public interface CrudServiceInterface {
 
 	
 	
+	@WebMethod
+	public String getRightsStringDataHeader(String separator);
 
+	@WebMethod
+	public String getSellersStringDataHeader(String separator);
+	
+	@WebMethod
+	public String getGroupsStringDataHeader(String separator);
+	
+	@WebMethod
+	public String getFormFieldsStringDataHeader(String separator);
+	
+	@WebMethod
+	public String getDiscountsStringDataHeader(String separator);
+
+	@WebMethod
+	public String getApplicationsStringDataHeader(String separator);
+	
+	
+	
+
+	@WebMethod
+	public List<String> getAllDiscountsAsSeparatedStringsList(String separator);
+	
+	@WebMethod
+	public List<String> getAllFormFieldsAsSeparatedStringsList(String separator);
+	
+	@WebMethod
+	public List<String> getAllRightsAsSeparatedStringsList(String separator);
+	
+	@WebMethod
+	public List<String> getAllSellersAsSeparatedStringsList(String separator);
+	
+	@WebMethod
+	public List<String> getAllApplicationsAsSeparatedStringsList(String separator, String secondLevelSeparator);
+
+	@WebMethod
+	public List<String> getAllGroupsAsSeparatedStringsList(String separator, String secondLevelSeparator);
 	
 	
 	

@@ -107,26 +107,7 @@ public class Seller extends WebDBEntity{
 	}
  
 	
-	/**
-	 * Method for obtaining String header for what is present in String returned by {@code getAllDataAsString} method.
-	 * @param separator string that should be used to separate values.
-	 * @return single String with names of all fields in entity.
-	 */
-	public String getStringDataHeader(String separator){
-		StringBuilder sb = new StringBuilder();
-		sb.append("ID/Name"+separator);
-		sb.append("Address"+separator);
-		sb.append("Type"+separator);
-		sb.append("Description"+separator);
-	
-		sb.append("Author"+separator);
-		sb.append("Time Created"+separator);
-		sb.append("Modifier"+separator);
-		sb.append("Time Modified");
-		
-		return sb.toString();
-	}
-	
+
 	/**
 	 * Returns all data from entity, separated by 'separator'. If any nested lists are present, then 'secondLevelSeparator' is used to separate those values (like fields in application)
 	 * @param separator separator for data (id, type, description etc)

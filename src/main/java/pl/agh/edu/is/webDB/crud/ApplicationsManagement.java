@@ -3,12 +3,15 @@ package pl.agh.edu.is.webDB.crud;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import javax.persistence.Transient;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import pl.agh.edu.is.webDB.entities.Application;
+import pl.agh.edu.is.webDB.entities.Right;
 
 public class ApplicationsManagement {
 
@@ -149,4 +152,37 @@ public class ApplicationsManagement {
 		
 		return res;
 	}
+	
+	/**
+	 * Method for obtaining String header for what is present in String returned by {@code getAllDataAsString} method.
+	 * @param separator string that should be used to separate values.
+	 * @return single String with names of all fields in entity.
+	 */
+	public static String getStringDataHeader(String separator){
+		StringBuilder sb = new StringBuilder();
+		sb.append("ID"+separator);
+		sb.append("Type"+separator);
+		sb.append("Applicant"+separator);
+		sb.append("Supervisor"+separator);
+		sb.append("Description"+separator);
+		sb.append("Fields' names"+separator);
+		sb.append("Author"+separator);
+		sb.append("Time Created"+separator);
+		sb.append("Modifier"+separator);
+		sb.append("Time Modified");
+		
+		return sb.toString();
+	}
+	
+	public static ArrayList<String> getAllApplicationsAsListOfSeparatedStrings(String separator, String secondLevelSeparator){
+		ArrayList<String> result = new ArrayList<String>();
+		ArrayList<Application> allApplications = getAll();
+		
+		for(Application a:allApplications){
+			result.add(a.getAllDataAsString(separator, secondLevelSeparator));
+		}
+		
+		return result;
+	}
+
 }

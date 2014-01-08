@@ -138,6 +138,38 @@ public class FormFieldsManagement {
 		
 		return res;
 	}
+	
+	
+	/**
+	 * Method for obtaining String header for what is present in String returned by {@code getAllDataAsString} method.
+	 * @param separator string that should be used to separate values.
+	 * @return single String with names of all fields in entity.
+	 */
+	public static String getStringDataHeader(String separator){
+		StringBuilder sb = new StringBuilder();
+		sb.append("ID/Name"+separator);
+		sb.append("Field Type"+separator);
+		sb.append("Description"+separator);
+	
+		sb.append("Author"+separator);
+		sb.append("Time Created"+separator);
+		sb.append("Modifier"+separator);
+		sb.append("Time Modified");
+		
+		
+		return sb.toString();
+	}
+	
+	public static ArrayList<String> getAllFormFieldsAsListOfSeparatedStrings(String separator){
+		ArrayList<String> result = new ArrayList<String>();
+		ArrayList<FormField> allFormFields = getAll();
+		
+		for(FormField ff:allFormFields){
+			result.add(ff.getAllDataAsString(separator));
+		}
+		
+		return result;
+	}
 
 	
 }

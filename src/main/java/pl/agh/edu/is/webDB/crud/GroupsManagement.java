@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
+import pl.agh.edu.is.webDB.entities.Discount;
 import pl.agh.edu.is.webDB.entities.Group;
 
 public class GroupsManagement {
@@ -139,5 +140,36 @@ public class GroupsManagement {
 		return res;
 	}
 
+	/**
+	 * Method for obtaining String header for what is present in String returned by {@code getAllDataAsString} method.
+	 * @param separator string that should be used to separate values.
+	 * @return single String with names of all fields in entity.
+	 */
+	public static String getStringDataHeader(String separator){
+		StringBuilder sb = new StringBuilder();
+		sb.append("ID/Name"+separator);
+		sb.append("Rights"+separator);
+		sb.append("Description"+separator);
+		sb.append("Is Active"+separator);
+	
+		sb.append("Author"+separator);
+		sb.append("Time Created"+separator);
+		sb.append("Modifier"+separator);
+		sb.append("Time Modified");
+		
+		
+		return sb.toString();
+	}
+	
+	public static ArrayList<String> getAllGroupsAsListOfSeparatedStrings(String separator, String secondLevelSeparator){
+		ArrayList<String> result = new ArrayList<String>();
+		ArrayList<Group> allGroups = getAll();
+		
+		for(Group g:allGroups){
+			result.add(g.getAllDataAsString(separator, secondLevelSeparator));
+		}
+		
+		return result;
+	}
 	
 }
